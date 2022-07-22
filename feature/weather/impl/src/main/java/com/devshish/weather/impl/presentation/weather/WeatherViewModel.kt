@@ -67,11 +67,13 @@ internal class WeatherViewModel @Inject constructor(
         with(viewModelScope) {
             launch {
                 withContext(Dispatchers.Default) {
-                    val settingsData = SettingsDataStorage.SettingsData(
-                        location = DEFAULT_LOCATION,
-                        units = DEFAULT_UNITS,
-                    )
-                    settingsDataStorage.setSettingsData(settingsData)
+                    if (settingsDataStorage.getSettingsData() == null) {
+                        val settingsData = SettingsDataStorage.SettingsData(
+                            location = DEFAULT_LOCATION,
+                            units = DEFAULT_UNITS,
+                        )
+                        settingsDataStorage.setSettingsData(settingsData)
+                    }
                 }
             }
 
