@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 28
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField 'String', 'API_URL', '"https://www.visualcrossing.com/"'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    implementation libs.androidx.constraintlayout
+    implementation libs.android.material
+    implementation libs.bundles.fragment
+
+    implementation libs.coroutines
+
+    // Logging
+    implementation libs.timber
+
+    // Dagger
+    implementation libs.dagger
+    kapt libs.dagger.compiler
+
+    implementation libs.androidx.swiperefreshlayout
+
+    implementation libs.cicerone
+
+    implementation project(":core:injector")
+
+    implementation project(":base:storage")
+    implementation project(":base:ui")
+
+    implementation project(":core:mvvm")
+    implementation project(":core:utils")
+    implementation project(":core:network")
+    implementation project(":core:recycler")
+
+    implementation project(":feature:weather:api")
+    implementation project(":feature:settings:api")
+    implementation project(":feature:settings:impl")
+}

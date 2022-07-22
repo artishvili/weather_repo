@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 28
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    // Retrofit
+    api libs.retrofit
+
+    // TODO Remove these 2 libs
+    implementation project(":core:utils")
+    implementation project(":core:mvvm")
+
+    // Logging
+    implementation libs.timber
+
+    // OkHttp
+    implementation libs.okhttp
+    implementation libs.okhttp.logging
+
+    // Serialisation
+    api libs.kotlinx.serialization
+    implementation libs.retrofit.serialization.converter
+    implementation 'androidx.annotation:annotation:1.4.0'
+}

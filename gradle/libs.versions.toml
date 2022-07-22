@@ -1,0 +1,62 @@
+[versions]
+detekt = "1.21.0"
+fragment = "1.5.0"
+dagger = "2.42"
+coroutines = "1.6.1"
+okhttp = "4.10.0"
+lifecycle = "2.5.0"
+
+[libraries]
+# Initial Android libraries
+androidx-core-ktx = { module = "androidx.core:core-ktx", version = "1.8.0" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.4.2" }
+android-material = { module = "com.google.android.material:material", version = "1.7.0-alpha03" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version = "2.1.4" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version = "1.2.1" }
+
+# Coroutines
+coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+
+# Fragment and View Binding - use "fragment" bundle instead
+androidx-fragment = { module = "androidx.fragment:fragment", version.ref = "fragment" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment" }
+viewbinding = { module = "com.github.kirich1409:viewbindingpropertydelegate-noreflection", version = "1.5.6" }
+
+# Detekt
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+
+# Dagger
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
+
+# Logging
+timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
+
+# Swipe-to-refresh layout
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version = "1.1.0" }
+
+# Network
+retrofit = { module = "com.squareup.retrofit2:retrofit", version = "2.9.0" }
+
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.4.0-RC" }
+retrofit-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version = "0.8.0" }
+
+# Data Store
+datastore-preferences = { module = "androidx.datastore:datastore-preferences", version = "1.0.0" }
+
+# Image loading
+coil = { module = "io.coil-kt:coil", version = "2.1.0" }
+
+# Navigation
+cicerone = { module = "com.github.terrakok:cicerone", version = "7.1" }
+
+[bundles]
+fragment = ["androidx-fragment", "androidx-fragment-ktx", "viewbinding"]
+
+[plugins]
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

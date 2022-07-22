@@ -1,0 +1,35 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+enableFeaturePreview('VERSION_CATALOGS')
+rootProject.name = "Weather"
+include ':app'
+
+/** Base modules */
+include ':base:storage'
+
+/** Core modules */
+include ':core:injector'
+include ':core:mvvm'
+include ':core:network'
+include ':core:recycler'
+include ':core:utils'
+
+/** Feature modules*/
+include ':feature:settings:api'
+include ':feature:settings:impl'
+
+include ':feature:weather:api'
+include ':feature:weather:impl'
+include ':base:ui'

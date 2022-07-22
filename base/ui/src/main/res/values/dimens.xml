@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Design system sizes-->
+    <dimen name="spacing_1x">8dp</dimen>
+    <dimen name="spacing_2x">16dp</dimen>
+    <dimen name="spacing_3x">24dp</dimen>
+    <dimen name="spacing_4x">32dp</dimen>
+    <dimen name="spacing_5x">40dp</dimen>
+
+    <!-- Other -->
+    <dimen name="size_settings_icon">30dp</dimen>
+    <dimen name="size_weather_icon">50dp</dimen>
+
+</resources>

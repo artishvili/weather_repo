@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/spacing_1x">
+
+    <TextView
+        android:id="@+id/tvDay"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Monday" />
+
+    <ImageView
+        android:id="@+id/ivRain"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvRainPossibility"
+        app:layout_constraintEnd_toStartOf="@id/tvRainPossibility"
+        app:layout_constraintTop_toTopOf="@id/tvRainPossibility" />
+
+    <TextView
+        android:id="@+id/tvRainPossibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_2x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ivWeatherIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="23%" />
+
+    <ImageView
+        android:id="@+id/ivWeatherIcon"
+        android:layout_width="25dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/spacing_2x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvTempDayNight"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTempDayNight"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="23 / 21" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

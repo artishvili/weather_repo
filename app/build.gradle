@@ -1,0 +1,76 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.devshish.weather"
+        minSdk 28
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BASE_URL', '"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/"'
+        buildConfigField 'String', 'API_KEY', '"DJ9CGJW8A6ALWTGRQ6K3CVD3L"'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    // Android libs
+    implementation libs.bundles.fragment
+    implementation libs.androidx.appcompat
+
+    // Timber
+    implementation libs.timber
+
+    // Dagger
+    implementation libs.dagger
+    kapt libs.dagger.compiler
+
+    // DataStore
+    implementation libs.datastore.preferences
+
+    // Cicerone
+    implementation libs.cicerone
+
+    // Core
+    implementation project(":core:injector")
+    implementation project(":core:mvvm")
+    implementation project(":core:utils")
+    implementation project(":core:network")
+
+    // Base
+    implementation project(":base:storage")
+
+    // Weather feature
+    implementation project(":feature:weather:api")
+    implementation project(":feature:weather:impl")
+
+    // Settings feature
+    implementation project(":feature:settings:api")
+    implementation project(":feature:settings:impl")
+}
